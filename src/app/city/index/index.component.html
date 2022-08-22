@@ -1,0 +1,27 @@
+<br>
+<div class="container">
+  <br>
+    <h1>Welcome to CITY Hospital</h1>
+  
+    <br>
+    <a href="#" routerLink="/city/create/" class="btn btn-success">Create New Post</a>
+    <br><br>
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let post of cities">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+        <td>
+          <a href="#" [routerLink]="['/city/', post.id, 'view']" class="btn btn-info">View</a>&nbsp;
+          <a href="#" [routerLink]="['/city/', post.id, 'edit']" class="btn btn-primary" style="color: black">Edit</a>&nbsp;
+          <button type="button" (click)="deletePost(post.id)" class="btn btn-danger" style="color: black">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>
